@@ -1,0 +1,48 @@
+﻿<style>
+    #wave-container {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        width: 100vw;
+        height: calc(100vh - 48px);
+        overflow: hidden;
+    }
+
+    #visual {
+        position: relative;
+        width: 110vw;
+        margin-top: -28rem;
+        margin-left: -5vw;
+    }
+</style>
+
+<div id="wave-container">
+    <svg id="visual" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+        <g transform="0">
+            <path id="wave-1" d="M0 515L37.5 515.2C75 515.3 150 515.7 225 514.2C300 512.7 375 509.3 450 509C525 508.7 600 511.3 675 522.7C750 534 825 554 862.5 564L900 574L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z" fill="#D32F2F" stroke-linecap="round" stroke-linejoin="miter">
+            </path>
+        </g>
+        <g transform="0">
+            <path id="wave-2" visibility="hidden" d="M0 505L37.5 512.5C75 520 150 535 225 542.2C300 549.3 375 548.7 450 551.5C525 554.3 600 560.7 675 562.3C750 564 825 561 862.5 559.5L900 558L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z" fill="#D32F2F" stroke-linecap="round" stroke-linejoin="miter">
+            </path>
+        </g>
+    </svg>
+</div>
+
+@code 
+{
+
+    [Inject]
+    private IJSRuntime JsRuntime { get; set; } = null!;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        
+        if (!firstRender)
+            return;
+
+        await JsRuntime.InvokeVoidAsync("kuteStart");
+    }
+
+}
