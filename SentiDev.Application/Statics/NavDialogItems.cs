@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using SentiDev.Application.Models;
 
 namespace SentiDev.Application.Statics;
 
@@ -6,26 +7,25 @@ public static class NavDialogItems
 {
     public static readonly Collection<NavItem> Items = new ()
     {
-        new ()
+        new NavItem
         {
-            Text = "Lorem",
-            Href = "https://www.google.com/"
+            Text = "Home",
+            Href = Routes.HomeRoute
         },
-        new ()
+        new NavItem
         {
-            Text = "Ipsum",
-            Href = "https://www.google.com/"
+            Text = "About Me",
+            Href = Routes.AboutMeRoute
         },
-        new ()
+        new NavItem
         {
-            Text = "Dolor",
-            Href = "https://www.google.com/"
+            Text = "Projects",
+            Href = Routes.ProjectsRoute
+        },
+        new NavItem
+        {
+            Text = "Contact",
+            Href = Routes.ContactRoute
         }
     };
-}
-
-public record NavItem
-{
-    public string Text { get; init; }
-    public string Href { get; init; }
 }

@@ -1,0 +1,25 @@
+@using SentiDev.Application.Statics
+
+<style>
+    .mud-list-item-custom:hover {
+        color: @Colors.Red.Darken2;
+    }
+</style>
+
+<MudStack Style="@Style"
+          Row="true">
+    @foreach (var item in SocialsItems.Items)
+    {
+            <MudIconButton Icon="@item.Icon"
+                           Href="@item.Href"
+                           Title="@item.Title"
+                           Class="mud-list-item-custom"/>
+    }
+</MudStack>
+
+@code {
+
+    [Parameter]
+    public string Style { get; set; } = string.Empty;
+
+}

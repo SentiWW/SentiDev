@@ -1,6 +1,16 @@
 ﻿@using SentiDev.Application.Statics
-@using SentiDev.Application.Components
 
-@attribute [Route(Routes.HomeRoute)]
+@attribute [Route(Routes.IndexRoute)]
 
-<AnimatedTitle/>
+@code
+{
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = null!;
+    
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        
+        NavigationManager.NavigateTo(Routes.HomeRoute);
+    }
+}

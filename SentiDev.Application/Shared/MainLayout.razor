@@ -9,10 +9,18 @@
     <MudAppBar Elevation="1"
                Dense="true"
                Color="Color.Primary">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" 
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
                        Color="Color.Inherit"
                        Edge="Edge.Start"
-                       OnClick="DrawerToggleAsync" />
+                       OnClick="DrawerToggleAsync"/>
+        <MudButton Variant="Variant.Text"
+                   Href="@Routes.HomeRoute"
+                   DisableElevation="true"
+                   DisableRipple="true"
+                   Style="background: none;
+                          color: #ffffff">
+            SENTI.DEV
+        </MudButton>
     </MudAppBar>
     <MudMainContent>
         @Body

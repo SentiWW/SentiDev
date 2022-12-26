@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MudBlazor;
-using SentiDev.Application.Components;
+using SentiDev.Application.Components.NavScreen;
 
 namespace SentiDev.Application.Shared;
 
@@ -11,9 +11,9 @@ public partial class MainLayout
     
     private async Task DrawerToggleAsync()
     {
-        await DialogService.ShowAsync<NavDialog>(string.Empty, new DialogOptions
+        await DialogService.ShowAsync<NavScreen>(string.Empty, new DialogOptions
         {
-            CloseButton = true,
+            CloseButton = false,
             CloseOnEscapeKey = true,
             FullScreen = true, 
             FullWidth = true
